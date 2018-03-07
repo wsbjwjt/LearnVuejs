@@ -6,25 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <link href="../css/style.css" rel="stylesheet"> 
-  <title>v-show</title>
+  <title>v-for</title>
 </head>
 <body>
   <div id="myApp">
-    <h1 v-show="result">任天堂新一代主机Swtich</h1>
-    <button @click="btnClick">显示</button>
+    <h1>JS对象的迭代</h1>
+    <div v-for="(value, key) in mygame">
+      {{key}} : {{value}}
+    </div>
   </div>
 
   <script>
     var myApp = new Vue({
       el: '#myApp',
       data: {
-        result : true
+        mygame: {
+          title: "乌贼娘2代",
+          price: 350,
+          pubdate: "2017年夏季",
+          category: "射击",
+          agerange: "全年龄",
+        },
       },
-      methods: {
-        btnClick: function() {
-          this.result = !this.result;
-        }
-      }
     });
 
   

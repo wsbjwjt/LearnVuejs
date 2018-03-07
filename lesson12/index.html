@@ -6,25 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <link href="../css/style.css" rel="stylesheet"> 
-  <title>v-show</title>
+  <title>class bind</title>
 </head>
 <body>
   <div id="myApp">
-    <h1 v-show="result">任天堂新一代主机Swtich</h1>
-    <button @click="btnClick">显示</button>
+    <div v-bind:class="myClass">红色文本</div>
+    <div ></div>
+    
+    <button @click="btnClick">改变class吧</button>
   </div>
 
   <script>
     var myApp = new Vue({
       el: '#myApp',
-      data: {
-        result : true
+      data:{
+        myClass: {
+          active: true,
+          big: true,
+        }
       },
       methods: {
-        btnClick: function() {
-          this.result = !this.result;
-        }
-      }
+        btnClick: function(){
+          this.myClass.big = !this.myClass.big;
+        },
+      },
+
     });
 
   

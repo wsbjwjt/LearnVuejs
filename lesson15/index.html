@@ -6,25 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <link href="../css/style.css" rel="stylesheet"> 
-  <title>v-show</title>
+  <title>v-for</title>
 </head>
 <body>
   <div id="myApp">
-    <h1 v-show="result">任天堂新一代主机Swtich</h1>
-    <button @click="btnClick">显示</button>
+    <ul>
+      <li v-for="(game, index) in games">({{index + 1}}) {{game.title}} / {{game.price}}</li>
+    </ul>
   </div>
 
   <script>
     var myApp = new Vue({
       el: '#myApp',
       data: {
-        result : true
+        games: [
+          {title: "勇者斗恶龙", price: 500},
+          {title: "酷跑卡丁车", price: 300},
+          {title: "马里奥世界", price: 450},
+        ],
       },
-      methods: {
-        btnClick: function() {
-          this.result = !this.result;
-        }
-      }
     });
 
   
